@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Homework1</string>
     <string name="btn_text">+</string>
+    <string name="cell_info">Cell No.%d</string>
 </resources>

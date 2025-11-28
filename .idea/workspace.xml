@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c65a894f-371e-4ab8-ae52-6c6768503969" name="Changes" comment="feat: Initialize Homework1 project&#10;&#10;Sets up the initial structure for a new Android application.&#10;&#10;This commit includes:&#10;-   The basic application structure with Gradle configuration files (`build.gradle.kts`, `settings.gradle.kts`, `libs.versions.toml`).&#10;-   Standard Android project files like `AndroidManifest.xml`, resources, and `.gitignore`.&#10;-   A `MainActivity` that displays a grid of colored squares. A Floating Action Button adds new squares to the grid.&#10;-   Support for both light and dark themes, with different colors for odd and even-numbered squares.&#10;-   Responsive layout that adjusts the number of grid columns for portrait and landscape orientations.">
+      <change afterPath="$PROJECT_DIR$/Homework1/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/.idea/AndroidProjectSystem.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/.idea/deploymentTargetSelector.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/.idea/deviceManager.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/.idea/migrations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/androidTest/java/com/example/homework1/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/java/com/example/homework1/MainActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/app/src/test/java/com/example/homework1/ExampleUnitTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/gradle/libs.versions.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Homework1/settings.gradle.kts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="34vvRgpnm3PLlDB5I3GG2SJF7aL" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/МГТУ им. Н.Э.Баумана/VK_EDU/homeworks",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c65a894f-371e-4ab8-ae52-6c6768503969" name="Changes" comment="" />
+      <created>1762106853748</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1762106853748</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: Initialize Homework1 project&#10;&#10;Sets up the initial structure for a new Android application.&#10;&#10;This commit includes:&#10;-   The basic application structure with Gradle configuration files (`build.gradle.kts`, `settings.gradle.kts`, `libs.versions.toml`).&#10;-   Standard Android project files like `AndroidManifest.xml`, resources, and `.gitignore`.&#10;-   A `MainActivity` that displays a grid of colored squares. A Floating Action Button adds new squares to the grid.&#10;-   Support for both light and dark themes, with different colors for odd and even-numbered squares.&#10;-   Responsive layout that adjusts the number of grid columns for portrait and landscape orientations." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Initialize Homework1 project&#10;&#10;Sets up the initial structure for a new Android application.&#10;&#10;This commit includes:&#10;-   The basic application structure with Gradle configuration files (`build.gradle.kts`, `settings.gradle.kts`, `libs.versions.toml`).&#10;-   Standard Android project files like `AndroidManifest.xml`, resources, and `.gitignore`.&#10;-   A `MainActivity` that displays a grid of colored squares. A Floating Action Button adds new squares to the grid.&#10;-   Support for both light and dark themes, with different colors for odd and even-numbered squares.&#10;-   Responsive layout that adjusts the number of grid columns for portrait and landscape orientations." />
+  </component>
+</project>

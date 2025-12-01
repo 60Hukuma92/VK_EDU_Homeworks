@@ -2,8 +2,18 @@
     <string name="app_name">Rick and Morty App</string>
     <string name="error">Error</string>
     <string name="character_image_content_description">Image of %1$s</string>
-    <string name="first_seen">First seen in ep: %1$s</string>
-    <string name="episode_data_not_available">Episode data n/a</string>
+    <string name="episode_data_not_available">N/A</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="retry">Retry</string>
+    <string name="close">Close</string>
+
+    <!-- Character Details -->
+    <string name="details_id">ID</string>
+    <string name="details_status">Status</string>
+    <string name="details_species">Species</string>
+    <string name="details_type">Type</string>
+    <string name="details_location">Last known location</string>
+    <string name="details_first_seen">First seen in</string>
+    <string name="details_episode">Episode %1$s</string>
+    <string name="details_type_unknown">Unknown</string>
 </resources>

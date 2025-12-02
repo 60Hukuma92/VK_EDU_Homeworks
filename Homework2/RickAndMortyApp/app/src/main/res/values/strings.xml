@@ -17,4 +17,5 @@
     <string name="details_episode">Episode %1$s</string>
     <string name="details_type_unknown">Unknown</string>
     <string name="image_placeholder">Image</string>
+    <string name="back_button_description">Back</string>
 </resources>

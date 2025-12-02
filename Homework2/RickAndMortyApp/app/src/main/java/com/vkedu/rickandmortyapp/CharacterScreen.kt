@@ -13,17 +13,23 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridItemSpan
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.AlertDialog
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -33,9 +39,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -105,7 +111,7 @@ fun CharacterScreen(viewModel: CharacterViewModel = viewModel()) {
         }
 
         selectedCharacter?.let {
-            CharacterDetailsDialog(character = it, onDismiss = { selectedCharacter = null })
+            CharacterDetailsScreen(character = it, onBack = { selectedCharacter = null })
         }
     }
 }
@@ -142,44 +148,77 @@ fun CharacterImage(character: Character, onClick: () -> Unit) {
 }
 
 @Composable
-fun CharacterDetailsDialog(character: Character, onDismiss: () -> Unit) {
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = {
-            Text(text = character.name, style = MaterialTheme.typography.headlineSmall)
-        },
-        text = {
-            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                HorizontalDivider()
-                DetailRow(label = stringResource(R.string.details_id), value = character.id.toString())
-                DetailRow(label = stringResource(R.string.details_status), value = character.status)
-                DetailRow(label = stringResource(R.string.details_species), value = character.species)
-                if (character.type.isNotEmpty()) {
-                    DetailRow(label = stringResource(R.string.details_type), value = character.type)
-                } else {
-                    DetailRow(label = stringResource(R.string.details_type), value = stringResource(R.string.details_type_unknown))
-                }
-                DetailRow(label = stringResource(R.string.details_location), value = character.location.name)
-                val firstEpisodeNumber = character.episode.firstOrNull()?.split("/")?.lastOrNull()
-                DetailRow(
-                    label = stringResource(R.string.details_first_seen),
-                    value = if (firstEpisodeNumber != null) stringResource(R.string.details_episode, firstEpisodeNumber) else stringResource(R.string.episode_data_not_available)
-                )
-            }
-        },
-        confirmButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(id = R.string.close))
-            }
-        }
-    )
-}
-
-@Composable
 fun DetailRow(label: String, value: String) {
     Row(modifier = Modifier.fillMaxWidth()) {
         Text(text = "$label: ", fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f))
         Text(text = value, modifier = Modifier.weight(1f), textAlign = TextAlign.End)
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun CharacterDetailsScreen(character: Character, onBack: () -> Unit) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(character.name) },
+                navigationIcon = {
+                    IconButton(onClick = onBack) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = stringResource(R.string.back_button_description)
+                        )
+                    }
+                }
+            )
+        }
+    ) { paddingValues ->
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues),
+            contentPadding = PaddingValues(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            item {
+                SubcomposeAsyncImage(
+                    model = character.image,
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(300.dp)
+                        .clip(RoundedCornerShape(12.dp)),
+                    loading = {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(Color.Gray.copy(alpha = 0.5f))
+                        )
+                    }
+                )
+            }
+
+            item {
+                Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    HorizontalDivider()
+                    DetailRow(label = stringResource(R.string.details_id), value = character.id.toString())
+                    DetailRow(label = stringResource(R.string.details_status), value = character.status)
+                    DetailRow(label = stringResource(R.string.details_species), value = character.species)
+                    if (character.type.isNotEmpty()) {
+                        DetailRow(label = stringResource(R.string.details_type), value = character.type)
+                    } else {
+                        DetailRow(label = stringResource(R.string.details_type), value = stringResource(R.string.details_type_unknown))
+                    }
+                    DetailRow(label = stringResource(R.string.details_location), value = character.location.name)
+                    val firstEpisodeNumber = character.episode.firstOrNull()?.split("/")?.lastOrNull()
+                    DetailRow(
+                        label = stringResource(R.string.details_first_seen),
+                        value = if (firstEpisodeNumber != null) stringResource(R.string.details_episode, firstEpisodeNumber) else stringResource(R.string.episode_data_not_available)
+                    )
+                }
+            }
+        }
     }
 }
 

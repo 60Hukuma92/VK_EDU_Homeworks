@@ -1,6 +1,7 @@
 package com.vkedu.rickandmortyapp
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -31,6 +32,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
@@ -40,7 +42,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
-import coil.compose.AsyncImage
+import coil.compose.SubcomposeAsyncImage
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -113,7 +115,7 @@ fun CharacterImage(character: Character, onClick: () -> Unit) {
     val possibleHeights = remember { listOf(180.dp, 220.dp, 260.dp) }
     val height = possibleHeights[character.id % possibleHeights.size]
 
-    AsyncImage(
+    SubcomposeAsyncImage(
         model = character.image,
         contentDescription = stringResource(R.string.character_image_content_description, character.name),
         contentScale = ContentScale.Crop,
@@ -121,7 +123,21 @@ fun CharacterImage(character: Character, onClick: () -> Unit) {
             .fillMaxWidth()
             .height(height)
             .clip(RoundedCornerShape(8.dp))
-            .clickable(onClick = onClick)
+            .clickable(onClick = onClick),
+        loading = {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.Gray.copy(alpha = 0.5f)),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = stringResource(R.string.image_placeholder),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = Color.White
+                )
+            }
+        }
     )
 }
 
